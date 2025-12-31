@@ -1,0 +1,137 @@
+# IDE 相關
+.idea
+.vscode/settings.json
+.vscode/launch.json
+/.project
+*.sublime-project
+*.sublime-workspace
+
+# 環境配置文件
+.env
+.env.local
+.env.*.local
+
+# 日誌文件
+/logs
+*.log
+*.log.*
+
+# 數據目錄
+/data
+/*/data
+*_data/
+
+# Docker Sync
+.docker-sync
+
+# Jenkins
+/jenkins/jenkins_home
+
+# Logstash 配置
+/logstash/pipeline/*.conf
+/logstash/config/pipelines.yml
+
+# SSL 憑證 (Nginx)
+/nginx/ssl/*.crt
+/nginx/ssl/*.key
+/nginx/ssl/*.csr
+/nginx/ssl/*.pem
+/nginx/sites/*.conf
+!/nginx/sites/*.conf.example
+
+# SSL 憑證 (Apache)
+/apache2/ssl/*.crt
+/apache2/ssl/*.key
+/apache2/ssl/*.csr
+/apache2/ssl/*.org
+/apache2/ssl/*.pem
+/apache2/sites/*.conf
+!/apache2/sites/*.conf.example
+
+# Caddy
+/caddy/caddy/
+/caddy/Caddyfile
+!/caddy/Caddyfile.example
+
+# MySQL/MariaDB
+/mysql/data
+/mariadb/data
+/percona/data
+
+# PostgreSQL
+/postgres/data
+
+# MongoDB
+/mongo/data
+
+# Redis
+/redis/data
+*.rdb
+*.aof
+
+# Elasticsearch
+/elasticsearch/data
+/elasticsearch/logs
+
+# Traefik
+/traefik/data
+/traefik/acme.json
+/traefik/traefik.log
+/traefik/access.log
+
+# Grafana
+/grafana/data
+
+# DevContainer
+/.devcontainer/*
+!/.devcontainer/devcontainer.example.json
+!/.devcontainer/docker-compose.extend-example.yml
+
+# 自定義 Docker Compose
+docker-compose.custom.yml
+docker-compose.override.yml
+docker-compose.local.yml
+
+# 臨時文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.cache
+
+# PID 文件
+*.pid
+*.sock
+*.lock
+
+# 操作系統相關
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Node modules (如果有前端工具)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backup 文件
+*.sql
+*.sql.gz
+*.dump
+backup/
+backups/
+
+# SSH 私鑰
+**/insecure_id_rsa
+**/id_rsa
+**/*.pem
+*.key
+!**/ssl/*.key
