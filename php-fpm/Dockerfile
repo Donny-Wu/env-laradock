@@ -781,7 +781,11 @@ RUN set -eux; \
       ;else \
         curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
       ;fi \
-      && curl https://packages.microsoft.com/config/debian/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+      && if [ "$(lsb_release -cs)" = "trixie" ]; then \
+        echo "deb [signed-by=/usr/share/keyrings/microsoft-prod.gpg] https://packages.microsoft.com/debian/12/prod bookworm main" > /etc/apt/sources.list.d/mssql-release.list \
+      ;else \
+        curl https://packages.microsoft.com/config/debian/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+      ;fi \
       && apt-get update -yqq \
       && ACCEPT_EULA=Y apt-get install -yqq unixodbc unixodbc-dev libgss3 odbcinst msodbcsql18 locales \
       && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
