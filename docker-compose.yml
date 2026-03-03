@@ -57,7 +57,7 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
-      restart: always
+      restart: "no"
       build:
         context: ./workspace
         args:
@@ -219,7 +219,7 @@ services:
 
 ### PHP-FPM ##############################################
     php-fpm:
-      restart: always
+      restart: "no"
       build:
         context: ./php-fpm
         args:
@@ -456,7 +456,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
-      restart: always
+      restart: "no"
       build:
         context: ./nginx
         args:
@@ -580,7 +580,7 @@ services:
 
 ### MySQL ################################################
     mysql:
-      restart: always
+      restart: "no"
       build:
         context: ./mysql
         args:
@@ -619,7 +619,7 @@ services:
 
 ### MSSQL ################################################
     mssql:
-      restart: always
+      restart: "no"
       build:
         context: ./mssql
       environment:
@@ -815,7 +815,7 @@ services:
 
   ### Redis ################################################
     redis:
-      restart: always
+      restart: "no"
       build: ./redis
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
@@ -1667,7 +1667,7 @@ services:
 
 ### Docker-in-Docker ################################################
     docker-in-docker:
-      restart: always
+      restart: "no"
       image: docker:20.10-dind
       environment:
         DOCKER_TLS_SAN: DNS:docker-in-docker
@@ -2251,7 +2251,7 @@ services:
   ### ngrok #####################################################
     ngrok:
       image: ngrok/ngrok:latest
-      restart: unless-stopped
+      restart: "no"
       command: http ${NGROK_TUNNEL_HOST}:${NGROK_TUNNEL_PORT}
       environment:
         - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
