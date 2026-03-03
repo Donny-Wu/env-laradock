@@ -2247,3 +2247,18 @@ services:
       networks:
         - frontend
         - backend
+
+  ### ngrok #####################################################
+    ngrok:
+      image: ngrok/ngrok:latest
+      restart: unless-stopped
+      command: http ${NGROK_TUNNEL_HOST}:${NGROK_TUNNEL_PORT}
+      environment:
+        - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+      ports:
+        - "${NGROK_DASHBOARD_PORT}:4040"
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      networks:
+        - frontend
+        - backend
