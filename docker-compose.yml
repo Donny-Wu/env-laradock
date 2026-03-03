@@ -2252,7 +2252,7 @@ services:
     ngrok:
       image: ngrok/ngrok:latest
       restart: "no"
-      command: http --host-header=rewrite ${NGROK_TUNNEL_SCHEME}://${NGROK_TUNNEL_HOST}:${NGROK_TUNNEL_PORT}
+      command: http --host-header=${NGROK_HOST_HEADER} ${NGROK_TUNNEL_SCHEME}://${NGROK_TUNNEL_HOST}:${NGROK_TUNNEL_PORT}
       environment:
         - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
       ports:
